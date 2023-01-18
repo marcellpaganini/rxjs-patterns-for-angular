@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Recipe } from '../model/recipe';
 import { RxjsService } from '../rxjs.service';
 
@@ -7,14 +8,21 @@ import { RxjsService } from '../rxjs.service';
   templateUrl: './rxjs-retrieve-list.component.html',
   styleUrls: ['./rxjs-retrieve-list.component.css']
 })
-export class RxjsRetrieveListComponent implements OnInit {
+export class RxjsRetrieveListComponent implements OnInit, OnDestroy {
   recipes: Recipe[] = [];
+  subscription!: Subscription;
+
   constructor(private rxjsService: RxjsService) {}
 
   ngOnInit(): void {
-    this.rxjsService.getRecipes().subscribe(result => {
+    this. subscription = this.rxjsService.getRecipes()
+      .subscribe(result => {
       this.recipes = result;
     });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
 }
