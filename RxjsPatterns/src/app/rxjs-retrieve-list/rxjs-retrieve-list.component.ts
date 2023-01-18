@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { catchError, Subscription } from 'rxjs';
 import { Recipe } from '../model/recipe';
 import { RxjsService } from '../rxjs.service';
 
@@ -15,16 +15,21 @@ export class RxjsRetrieveListComponent implements OnInit, OnDestroy {
   constructor(private rxjsService: RxjsService) {}
 
   ngOnInit(): void {
-    this.subscription = this.rxjsService.getRecipes()
-      .subscribe({
-      next: (res) => this.recipes = res,
-      error: (err) => console.log('Error occurred', err),
-      complete: () => console.log('Stream completed'),
+    this. subscription = this.getRecipes();
+  }
+
+  getRecipes() {
+    return this.rxjsService.getRecipes()
+    .pipe(
+      catchError(error => {
+        return error;
+      }))
+    .subscribe(res => {
+      this.recipes = res as Recipe[];
     });
   }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
-
 }
