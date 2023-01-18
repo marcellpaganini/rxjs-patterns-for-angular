@@ -4,6 +4,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RxjsRetrieveListComponent } from './rxjs-retrieve-list/rxjs-retrieve-list.component';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { RxjsService } from './rxjs.service';
+import { InMemoryDataService } from './in-memory-data.service';
+
 
 @NgModule({
   declarations: [
@@ -13,7 +17,8 @@ import { RxjsRetrieveListComponent } from './rxjs-retrieve-list/rxjs-retrieve-li
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false })
   ],
   providers: [],
   bootstrap: [AppComponent]
