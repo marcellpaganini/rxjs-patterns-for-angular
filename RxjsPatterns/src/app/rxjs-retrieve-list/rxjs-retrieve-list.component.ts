@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { catchError, from, map, of, Subscription } from 'rxjs';
+import { catchError, from, map, of, Subscription, throwError } from 'rxjs';
 import { Recipe } from '../model/recipe';
 import { RxjsService } from '../rxjs.service';
 
@@ -24,7 +24,7 @@ export class RxjsRetrieveListComponent implements OnInit, OnDestroy {
       }),
       catchError((error) => {
         console.log('Caught error', error);
-        return of();
+        return throwError(() => error);
       })
     ).subscribe({
       next: (res) => console.log('Value emmitted', res),
