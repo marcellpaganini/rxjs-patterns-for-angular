@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Recipe } from './model/recipe';
-import data from './data/recipes.json';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 
@@ -9,9 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class RxjsService {
-  constructor(private http: HttpClient) { }
+  recipes$ = this.http.get<Recipe[]>(`${environment.basePath}/recipes`);
 
-  getRecipes(): Observable<Recipe[]> {
-    return this.http.get<Recipe[]>(`${environment.basePath}/recipes`);
-  }
+  constructor(private http: HttpClient) { }
 }

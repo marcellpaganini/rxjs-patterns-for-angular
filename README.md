@@ -51,8 +51,13 @@
   
 
 ### Error messages for future reference  
-✖ Error:  
-Solution:       
+✖ Error: Type 'Observable<Recipe[]>' is not assignable to type 'NgIterable<any> | null | undefined'. (Template error inside for loop)    
+Solution: Add Async pipe to list property. Ex:   
+``` 
+<ul *ngFor="let recipe of recipes$ | async">
+  <li>{{ recipe.title }}</li>
+</ul>   
+```      
 #### Previous projects' errors
 ✖ Error: Invalid Character (typing ng --version in the terminal)   
 Solution: Use bash (workaround)   
