@@ -8,7 +8,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class RxjsService {
-  recipes$ = this.http.get<Recipe[]>(`${environment.basePath}/recipes`);
-
   constructor(private http: HttpClient) { }
+
+  getRecipes(): Observable<Recipe[]> {
+    return this.http.get<Recipe[]>(`${environment.basePath}/recipes`);
+  }
 }
