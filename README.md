@@ -61,7 +61,7 @@ Solution: Add Async pipe to list property. Ex:
 ✖ Error: (using catchError) Argument of type '(error: any) => void' is not assignable to parameter of type '(err: any, caught: Observable<Recipe[]>) => ObservableInput<any>'.  
 Solution: return the observable in the catch block:   
 ```
-return Observable.throw(error.statusText) or whatever is being passed in the parameter.
+return Observable.throw(error.statusText) / return of() or whatever is being passed in the parameter.
 ```   
 #### Previous projects' errors
 ✖ Error: Invalid Character (typing ng --version in the terminal)   
