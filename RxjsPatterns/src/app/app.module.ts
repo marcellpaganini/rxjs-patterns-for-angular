@@ -7,18 +7,32 @@ import { RxjsRetrieveListComponent } from './rxjs-retrieve-list/rxjs-retrieve-li
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { RxjsService } from './rxjs.service';
 import { InMemoryDataService } from './in-memory-data.service';
+import { RxjsNavMenuComponent } from './rxjs-nav-menu/rxjs-nav-menu.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+import { StarFormatterPipe } from './star-formatter.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    RxjsRetrieveListComponent
+    RxjsRetrieveListComponent,
+    RxjsNavMenuComponent,
+    StarFormatterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false })
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }),
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
