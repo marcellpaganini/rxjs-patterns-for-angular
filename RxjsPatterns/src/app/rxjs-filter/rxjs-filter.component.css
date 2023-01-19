@@ -6,3 +6,9 @@ button {
   margin-top: 2%;
   margin-bottom: 2%;
 }
+
+fieldset {
+  color: rgb(141, 125, 125);
+  font-weight: 500;
+  border-radius: 1%;
+}

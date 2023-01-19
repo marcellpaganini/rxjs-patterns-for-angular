@@ -3,7 +3,9 @@
       <fieldset class="rp-filters-group">
           <legend>Filters</legend>
 
-          <div><button mat-raised-button (onClick)="clearFilter()">Clear All</button></div>
+          <div align="right">
+            <button mat-raised-button (onClick)="clearFilter()">Clear All</button>
+          </div>
 
           <mat-form-field>
             <mat-label>Keyword:</mat-label>
@@ -29,8 +31,9 @@
             <mat-label>Cooking Time:</mat-label>
             <input matInput formControlName="cookingTime" placeholder="Minutes" />
           </mat-form-field>
-
-          <button mat-raised-button (onClick)="filterResults()">See results</button>
+          <div align="right">
+            <button mat-raised-button (onClick)="filterResults()">See results</button>
+          </div>
 
       </fieldset>
   </form>
