@@ -13,15 +13,21 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { StarFormatterPipe } from './star-formatter.pipe';
-
+import { RxjsFilterComponent } from './rxjs-filter/rxjs-filter.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RxjsRetrieveListComponent,
     RxjsNavMenuComponent,
-    StarFormatterPipe
+    StarFormatterPipe,
+    RxjsFilterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +38,11 @@ import { StarFormatterPipe } from './star-formatter.pipe';
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,
-    MatCardModule
+    MatCardModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

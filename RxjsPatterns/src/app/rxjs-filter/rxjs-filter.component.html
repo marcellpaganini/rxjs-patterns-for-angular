@@ -1,0 +1,37 @@
+<div class="filter">
+  <form [formGroup]="recipeForm">
+      <fieldset class="rp-filters-group">
+          <legend>Filters</legend>
+
+          <div><button mat-raised-button (onClick)="clearFilter()">Clear All</button></div>
+
+          <mat-form-field>
+            <mat-label>Keyword:</mat-label>
+            <input matInput formControlName="title" placeholder="Recipe title" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Category:</mat-label>
+            <input matInput formControlName="category" placeholder="Recipe category" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Ingredient:</mat-label>
+            <input matInput formControlName="ingredient" placeholder="Recipe ingredient" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Tags:</mat-label>
+            <input matInput formControlName="tags" placeholder="Related tags" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Preparation Time:</mat-label>
+            <input matInput formControlName="prepTime" placeholder="Minutes" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Cooking Time:</mat-label>
+            <input matInput formControlName="cookingTime" placeholder="Minutes" />
+          </mat-form-field>
+
+          <button mat-raised-button (onClick)="filterResults()">See results</button>
+
+      </fieldset>
+  </form>
+</div>
