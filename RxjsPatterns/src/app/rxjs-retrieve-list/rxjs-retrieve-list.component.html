@@ -1,1 +1,5 @@
 <img src="../../assets/imgs/chef.png" alt="" class="chef">
+
+<ul *ngFor="let recipe of recipes$ | async">
+  <li>{{ recipe.title }}</li>
+</ul>

@@ -1,38 +1,16 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { delayWhen, from, map, retryWhen, tap, timer } from 'rxjs';
-import { Recipe } from '../model/recipe';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { RxjsService } from '../rxjs.service';
-
 
 @Component({
   selector: 'app-rxjs-retrieve-list',
   templateUrl: './rxjs-retrieve-list.component.html',
-  styleUrls: ['./rxjs-retrieve-list.component.css']
+  styleUrls: ['./rxjs-retrieve-list.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RxjsRetrieveListComponent implements OnInit, OnDestroy {
-  stream$ = from(['5', '10', '6', 'Helllo', '2']);
+export class RxjsRetrieveListComponent implements OnInit {
+  recipes$ = this.rxjsService.recipes$;
 
   constructor(private rxjsService: RxjsService) {}
 
-  ngOnInit(): void {
-    this.stream$.pipe(
-      map((value) => {
-        if (isNaN(value as any)) {
-          throw new Error('This is not a number');
-        }
-        return parseInt(value);
-      }),
-      retryWhen((errors) => {
-        return errors.pipe(
-          delayWhen(() => timer(5000)),
-          tap(() => console.log('Retrying the source Observable...')))
-      })
-    ).subscribe({
-      next: (res) => console.log('Value emmitted', res),
-      error: (err) => console.log('Error occurred', err),
-      complete: () => console.log('Stream completed'),
-    });
-  }
-
-  ngOnDestroy(): void {}
+  ngOnInit(): void {}
 }
