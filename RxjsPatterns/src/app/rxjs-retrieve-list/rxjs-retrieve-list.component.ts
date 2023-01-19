@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { from, map, retryWhen, tap } from 'rxjs';
+import { delayWhen, from, map, retryWhen, tap, timer } from 'rxjs';
 import { Recipe } from '../model/recipe';
 import { RxjsService } from '../rxjs.service';
 
@@ -23,7 +23,9 @@ export class RxjsRetrieveListComponent implements OnInit, OnDestroy {
         return parseInt(value);
       }),
       retryWhen((errors) => {
-        return errors.pipe(tap(() => console.log('Retrying the source Observable...')))
+        return errors.pipe(
+          delayWhen(() => timer(5000)),
+          tap(() => console.log('Retrying the source Observable...')))
       })
     ).subscribe({
       next: (res) => console.log('Value emmitted', res),
