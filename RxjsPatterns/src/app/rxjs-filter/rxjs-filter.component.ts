@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Recipe } from '../model/recipe';
+import { RxjsService } from '../rxjs.service';
 
 
 @Component({
@@ -9,21 +11,26 @@ import { FormBuilder } from '@angular/forms';
 })
 export class RxjsFilterComponent implements OnInit {
 
-  recipeForm = this.fb.group({
-    title: [''],
-    category: [''],
-    ingredient: [''],
-    tags: [''],
-    prepTime: [''],
-    cookingTime: [''],
-  });
+  recipeForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+
+
+  constructor(private fb: FormBuilder, private rxjsService: RxjsService) { }
 
   ngOnInit(): void {
+    this.recipeForm = this.fb.group({
+      title: [''],
+      category: [''],
+      ingredient: [''],
+      tags: [''],
+      prepTime: [''],
+      cookingTime: [''],
+    });
   }
 
   filterResults() {
+    console.log(this.recipeForm.value);
+    this.rxjsService.updateFilter(this.recipeForm.value);
   }
 
   clearFilter() {

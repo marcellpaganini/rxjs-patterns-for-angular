@@ -63,6 +63,20 @@ Solution: return the observable in the catch block:
 ```
 return Observable.throw(error.statusText) / return of() or whatever is being passed in the parameter.
 ```   
+✖ Error: Property 'title' does not exist on type 'Recipe | Recipe[] | never[]'.   
+Solution: Still needed to map the result of combineLatest.   
+```
+filteredRecipes$ = combineLatest([this.recipes$, this.filterRecipesAction$]).pipe(
+    map((resultAsArray:[Recipe[], Recipe]) => {
+      return resultAsArray[0].filter(recipe => 
+        recipe.title?.toLowerCase().indexOf(
+          resultAsArray[1]?.title?.toLowerCase() ??
+          '') != -1)
+    })
+  );
+```    
+✖ Error: FormGroup => Type 'null' is not assignable to type 'string | undefined'.   
+Solution: [StackOverflow](https://stackoverflow.com/questions/66563535/type-formgroup-null-is-not-assignable-to-type-formgroup-type-null-is-no/ "Type 'FormGroup | null' is not assignable to type 'FormGroup'.")   
 #### Previous projects' errors
 ✖ Error: Invalid Character (typing ng --version in the terminal)   
 Solution: Use bash (workaround)   

@@ -1,5 +1,5 @@
-<div class="recipes">
-  <mat-card *ngFor="let recipe of recipes$ | async" class="recipe-card">
+<div class="recipes" *ngIf="filteredRecipes$ | async as recipes">
+  <mat-card *ngFor="let recipe of recipes" class="recipe-card">
     <mat-card-header>
       <div mat-card-avatar class="header-image"></div>
       <mat-card-title>{{ recipe.title }}</mat-card-title>
@@ -12,9 +12,11 @@
       </p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-mini-fab color="warn" aria-label="Cook" title="Cook">
-        <mat-icon>outdoor_grill</mat-icon>
-      </button>
+      <div align="center">
+        <button mat-mini-fab color="warn" aria-label="Cook" title="Cook">
+          <mat-icon>outdoor_grill</mat-icon>
+        </button>
+      </div>
     </mat-card-actions>
   </mat-card>
 </div>
