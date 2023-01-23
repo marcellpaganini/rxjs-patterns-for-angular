@@ -19,6 +19,7 @@ export class NewRecipeComponent implements OnInit {
     this.recipeForm = this.fb.group({
       id: Math.floor(1000 + Math.random() * 9000),
       title: [''],
+      category: [''],
       ingredients: [''],
       tags: [''],
       imageUrl: [''],
