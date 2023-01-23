@@ -2,6 +2,7 @@
   {
     "id": 1,
     "title": "Lemon cake",
+    "category": "Desserts",
     "prepTime": "15",
     "cookTime": "40",
     "servings": 10,
@@ -27,6 +28,7 @@
   {
     "id": 2,
     "title": "Lemon Pie",
+    "category": "Desserts",
     "prepTime": "30",
     "cookTime": "40",
     "servings": 10,
@@ -52,6 +54,7 @@
   {
     "id": 3,
     "title": "Tortilla Wrap",
+    "category": "Fast Food",
     "prepTime": "5",
     "cookTime": "5",
     "servings": 10,
@@ -78,6 +81,7 @@
   {
     "id": 4,
     "title": "Kebab",
+    "category": "Fast Food",
     "prepTime": "10",
     "cookTime": "10",
     "servings": 10,
@@ -104,6 +108,7 @@
   {
     "id": 5,
     "title": "Chilli Chicken",
+    "category": "Fast Food",
     "prepTime": "10",
     "cookTime": "10",
     "rating": 4,
@@ -130,6 +135,7 @@
   {
     "id": 6,
     "title": "Cookies",
+    "category": "Desserts",
     "prepTime": "20",
     "cookTime": "35",
     "servings": 10,
@@ -156,6 +162,7 @@
   {
     "id": 7,
     "title": "CheeseBurger",
+    "category": "Fast Food",
     "prepTime": "10",
     "cookTime": "10",
     "rating": 3,
@@ -182,6 +189,7 @@
   {
     "id": 8,
     "title": "Chilli Chicken",
+    "category": "Fast Food",
     "prepTime": "10",
     "cookTime": "10",
     "servings": 10,
@@ -208,6 +216,7 @@
   {
     "id": 9,
     "title": "Lemon cake",
+    "category": "Desserts",
     "prepTime": "15",
     "cookTime": "40",
     "rating": 2,
@@ -234,6 +243,7 @@
   {
     "id": 10,
     "title": "Lemon pie",
+    "category": "Desserts",
     "prepTime": "30",
     "cookTime": "40",
     "rating": 3,
@@ -260,6 +270,7 @@
   {
     "id": 11,
     "title": "Chilli chicken",
+    "category": "Fast Food",
     "prepTime": "10",
     "cookTime": "10",
     "servings": 10,

@@ -29,7 +29,6 @@ export class RxjsFilterComponent implements OnInit {
   }
 
   filterResults() {
-    console.log(this.recipeForm.value);
     this.rxjsService.updateFilter(this.recipeForm.value);
   }
 

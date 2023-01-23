@@ -13,7 +13,7 @@ export class RxjsService {
   );
 
   /* Create the action stream */
-  private filterRecipeSubject = new BehaviorSubject<Recipe>({title: ''});
+  private filterRecipeSubject = new BehaviorSubject<Recipe>({title: '', category: ''});
 
   /* Extract the readonly stream */
   filterRecipesAction$ = this.filterRecipeSubject.asObservable();

@@ -18,7 +18,10 @@ export class RxjsRetrieveListComponent implements OnInit {
       return recipes.filter(recipe =>
         recipe.title?.toLowerCase().indexOf(
           filter?.title?.toLowerCase() ??
-          '') != -1)
+          '') != -1 && recipe.category?.toLowerCase().indexOf(
+            filter?.category?.toLowerCase() ??
+            '') != -1
+          )
     })
   );
 
