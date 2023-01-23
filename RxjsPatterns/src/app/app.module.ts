@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RxjsRetrieveListComponent } from './rxjs-retrieve-list/rxjs-retrieve-list.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { RxjsService } from './rxjs.service';
 import { InMemoryDataService } from './in-memory-data.service';
 import { RxjsNavMenuComponent } from './rxjs-nav-menu/rxjs-nav-menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -14,11 +13,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatRadioModule } from '@angular/material/radio';
 import { StarFormatterPipe } from './star-formatter.pipe';
 import { RxjsFilterComponent } from './rxjs-filter/rxjs-filter.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { HomeComponent } from './home/home.component';
+import { NewRecipeComponent } from './new-recipe/new-recipe.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HomeComponent } from './home/home.component';
     RxjsNavMenuComponent,
     StarFormatterPipe,
     RxjsFilterComponent,
-    HomeComponent
+    HomeComponent,
+    NewRecipeComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ import { HomeComponent } from './home/home.component';
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

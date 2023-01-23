@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Recipe } from '../model/recipe';
 import { RxjsService } from '../rxjs.service';
 
 

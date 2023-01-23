@@ -1,0 +1,55 @@
+<div class="wrapper">
+  <h1>New Recipe</h1>
+
+  <form [formGroup]="recipeForm" class="form">
+    <section class="leftSection">
+      <mat-form-field>
+        <mat-label>Title:</mat-label>
+        <input matInput formControlName="title" placeholder="Type a title" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Ingredients:</mat-label>
+        <input matInput formControlName="ingredients" placeholder="Type the ingredients" />
+      </mat-form-field>
+
+        <label for="tags" class="tags-label">Tags:</label>
+        <mat-radio-group
+          aria-labelledby="example-radio-group-label"
+          class="tags-radio-group"
+          formControlName="tags">
+          <mat-radio-button class="tags-radio-button"
+            *ngFor="let tag of tags" [value]="tag.name">
+            {{tag.name}}
+          </mat-radio-button>
+        </mat-radio-group>
+    </section>
+
+    <section class="rightSection">
+      <mat-form-field>
+        <mat-label>Image Url</mat-label>
+        <input matInput formControlName="imageUrl" placeholder="Insert an image" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Cooking time</mat-label>
+        <input matInput formControlName="cookingTime" placeholder="Type the cooking time" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Yield</mat-label>
+        <input matInput formControlName="yield" placeholder="Type the yield" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Preparation Time</mat-label>
+        <input matInput formControlName="prepTime" placeholder="Type the preparation time" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Steps</mat-label>
+        <textarea matInput formControlName="steps" id="" cols="40" rows="10"></textarea>
+      </mat-form-field>
+    </section>
+  </form>
+</div>

@@ -1,0 +1,36 @@
+.wrapper {
+  padding: 4% 10%;
+}
+
+.form {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  padding: 5%;
+  background-color: wheat;
+}
+
+section {
+  display: flex;
+  flex-flow: column;
+  width: 35%;
+}
+
+.tags-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+  align-items: flex-start;
+}
+
+.tags-radio-button {
+  margin: 5px;
+  font-weight: 50;
+  color: rgb(112, 106, 106);
+}
+
+.tags-label {
+  color: rgb(112, 106, 106);
+  font-weight: 50;
+  margin-top: 3%;
+}
