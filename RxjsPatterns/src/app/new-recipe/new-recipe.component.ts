@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { RxjsService } from '../rxjs.service';
 import * as recipeTags from '../data/tags';
 import { Tag } from '../model/tag';
+import { catchError, concatMap, of, tap } from 'rxjs';
 
 
 @Component({
@@ -13,7 +14,10 @@ import { Tag } from '../model/tag';
 export class NewRecipeComponent implements OnInit {
   recipeForm!: FormGroup;
   tags!: Tag[];
+  valueChanges$: any;
+
   constructor(private fb: FormBuilder, private rxjsService: RxjsService) { }
+
 
   ngOnInit(): void {
     this.recipeForm = this.fb.group({
@@ -29,6 +33,16 @@ export class NewRecipeComponent implements OnInit {
       steps: ['']
     });
 
-    this.tags = recipeTags.TAGS
+    this.tags = recipeTags.TAGS;
+
+    this.valueChanges$ = this.recipeForm.valueChanges.pipe(
+      concatMap(formValue => this.rxjsService.saveRecipe(formValue)),
+      catchError(errors => of(errors)),
+      tap(result=>this.saveSuccess(result))
+    );
+  }
+
+  saveSuccess(result: any) {
+    console.log('Saved successfully');
   }
 }

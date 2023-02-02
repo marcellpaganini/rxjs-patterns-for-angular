@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Recipe } from './model/recipe';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { BehaviorSubject, catchError, of } from 'rxjs';
+import { BehaviorSubject, catchError, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +22,9 @@ export class RxjsService {
 
   updateFilter(criteria: Recipe) {
     this.filterRecipeSubject.next(criteria);
+  }
+
+  saveRecipe(formValue: Recipe): Observable<Recipe> {
+    return this.http.post<Recipe>(`${environment.basePath}/recipes/save`, formValue);
   }
 }
