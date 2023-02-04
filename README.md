@@ -77,6 +77,8 @@ filteredRecipes$ = combineLatest([this.recipes$, this.filterRecipesAction$]).pip
 ```    
 ✖ Error: FormGroup => Type 'null' is not assignable to type 'string | undefined'.   
 Solution: [StackOverflow](https://stackoverflow.com/questions/66563535/type-formgroup-null-is-not-assignable-to-type-formgroup-type-null-is-no/ "Type 'FormGroup | null' is not assignable to type 'FormGroup'.")   
+✖ Error: Argument of type 'Event' is not assignable to parameter of type MouseEvent  
+Solution:  
 #### Previous projects' errors
 ✖ Error: Invalid Character (typing ng --version in the terminal)   
 Solution: Use bash (workaround)   
