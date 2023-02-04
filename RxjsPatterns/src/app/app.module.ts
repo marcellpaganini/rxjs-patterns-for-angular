@@ -20,6 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { HomeComponent } from './home/home.component';
 import { NewRecipeComponent } from './new-recipe/new-recipe.component';
+import { MulticastingComponent } from './multicasting/multicasting.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { NewRecipeComponent } from './new-recipe/new-recipe.component';
     StarFormatterPipe,
     RxjsFilterComponent,
     HomeComponent,
-    NewRecipeComponent
+    NewRecipeComponent,
+    MulticastingComponent
   ],
   imports: [
     BrowserModule,
