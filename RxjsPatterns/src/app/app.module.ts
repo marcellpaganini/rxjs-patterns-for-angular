@@ -21,6 +21,7 @@ import { MatInputModule } from '@angular/material/input';
 import { HomeComponent } from './home/home.component';
 import { NewRecipeComponent } from './new-recipe/new-recipe.component';
 import { MulticastingComponent } from './multicasting/multicasting.component';
+import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MulticastingComponent } from './multicasting/multicasting.component';
     RxjsFilterComponent,
     HomeComponent,
     NewRecipeComponent,
-    MulticastingComponent
+    MulticastingComponent,
+    RecipeDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,26 @@
+<div class="recipe-wrapper">
+  <div *ngIf="selectedRecipe$ | async; let recipe">
+    <section class="recipe-title">
+      {{ recipe.title }}
+      <span [outerHTML]="recipe.rating || 0 | starFormatter"></span>
+    </section>
+    <section class="recipe-details">
+      <ul class="general-info">
+        <li *ngIf="recipe.category"><strong>Category: </strong>{{ recipe.category }}</li>
+        <li *ngIf="recipe.cookingTime"><strong>Cooking time: </strong>{{ recipe.cookingTime }}min</li>
+        <li *ngIf="recipe.prepTime"><strong>Prepatration time: </strong>{{ recipe.prepTime }}min</li>
+        <li *ngIf="recipe.yield"><strong>Yield: </strong>{{ recipe.yield }}</li>
+        <li *ngIf="recipe.ingredients"><strong>Ingredients: </strong>{{ recipe.ingredients }}</li>
+      </ul>
+      <section class="preparation">
+        <p>
+          <img src="../../assets/imgs/{{recipe.imageUrl}}" alt="{{recipe.title}}" class="image">
+        </p>
+        <p>
+          {{ recipe.steps }}
+        </p>
+      </section>
+    </section>
+  </div>
+</div>
+

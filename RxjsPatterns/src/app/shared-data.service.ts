@@ -5,9 +5,9 @@ import { Recipe } from './model/recipe';
 @Injectable({
   providedIn: 'root'
 })
-export class DataService {
+export class SharedDataService {
   private selectedRecipeSubject = new BehaviorSubject<Recipe>({});
-  selectedRecipeAction = this.selectedRecipeSubject.asObservable();
+  selectedRecipeAction$ = this.selectedRecipeSubject.asObservable();
 
   updateSelectedRecipe(recipe: Recipe) {
     this.selectedRecipeSubject.next(recipe);

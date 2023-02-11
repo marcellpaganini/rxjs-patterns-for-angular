@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { combineLatest, map } from 'rxjs';
 import { Recipe } from '../model/recipe';
 import { RxjsService } from '../rxjs.service';
-
+import { SharedDataService } from '../shared-data.service';
 @Component({
   selector: 'app-rxjs-retrieve-list',
   templateUrl: './rxjs-retrieve-list.component.html',
@@ -25,7 +26,12 @@ export class RxjsRetrieveListComponent implements OnInit {
     })
   );
 
-  constructor(private rxjsService: RxjsService) {}
+  constructor(private rxjsService: RxjsService, private sharedDataService: SharedDataService, private router: Router) {}
 
   ngOnInit(): void {}
+
+  editRecipe(recipe: Recipe) {
+    this.sharedDataService.updateSelectedRecipe(recipe);
+    this.router.navigate(['/recipes/details']);
+  }
 }
