@@ -3,7 +3,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { RxjsService } from '../rxjs.service';
 import * as recipeTags from '../data/tags';
 import { Tag } from '../model/tag';
-import { catchError, concatMap, of, tap } from 'rxjs';
+import { BehaviorSubject, catchError, concatMap, finalize, forkJoin, of, switchMap, tap } from 'rxjs';
+import { UploadRecipesPreviewService } from '../upload-recipes-preview.service';
 
 
 @Component({
@@ -12,11 +13,13 @@ import { catchError, concatMap, of, tap } from 'rxjs';
   styleUrls: ['./new-recipe.component.css']
 })
 export class NewRecipeComponent implements OnInit {
+  counter: number = 0;
+  uploadProgress: number = 0;
   recipeForm!: FormGroup;
   tags!: Tag[];
   valueChanges$: any;
 
-  constructor(private fb: FormBuilder, private rxjsService: RxjsService) { }
+  constructor(private fb: FormBuilder, private rxjsService: RxjsService, private uploadService: UploadRecipesPreviewService) { }
 
 
   ngOnInit(): void {
@@ -40,6 +43,24 @@ export class NewRecipeComponent implements OnInit {
       catchError(errors => of(errors)),
       tap(result=>this.saveSuccess(result))
     );
+  }
+
+  uploadedFilesSubject$ = new BehaviorSubject<File[]>([]);
+
+  uploadRecipeImages$ = this.uploadedFilesSubject$.pipe(
+    switchMap(uploadedFiles => forkJoin(uploadedFiles.map((file: File) =>
+      this.uploadService.upload(this.recipeForm.value.id, file).pipe(
+        catchError(errors => of(errors)),
+        finalize(() => this.calculateProgressPercentage(++this.counter, uploadedFiles.length))
+      ))))
+  )
+
+  onUpload(files: File[]) {
+    this.uploadedFilesSubject$.next(files);
+  }
+
+  private calculateProgressPercentage(completedRequests: number, totalRequests: number) {
+    this.uploadProgress = (completedRequests/totalRequests)*100;
   }
 
   saveSuccess(result: any) {
