@@ -22,6 +22,7 @@ import { HomeComponent } from './home/home.component';
 import { NewRecipeComponent } from './new-recipe/new-recipe.component';
 import { MulticastingComponent } from './multicasting/multicasting.component';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
+import { RxjsReviewComponent } from './rxjs-review/rxjs-review.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { RecipeDetailsComponent } from './recipe-details/recipe-details.componen
     HomeComponent,
     NewRecipeComponent,
     MulticastingComponent,
-    RecipeDetailsComponent
+    RecipeDetailsComponent,
+    RxjsReviewComponent
   ],
   imports: [
     BrowserModule,

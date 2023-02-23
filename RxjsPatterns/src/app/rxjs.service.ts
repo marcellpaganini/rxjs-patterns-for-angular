@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Recipe } from './model/recipe';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { BehaviorSubject, catchError, Observable, of, switchMap, timer, pipe, shareReplay } from 'rxjs';
+import { BehaviorSubject, Observable, switchMap, timer, shareReplay } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
