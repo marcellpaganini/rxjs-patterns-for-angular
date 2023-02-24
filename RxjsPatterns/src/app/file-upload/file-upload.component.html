@@ -1,0 +1,21 @@
+<form [formGroup]="fileForm" class="form">
+  <mat-form-field>
+    <mat-label>Name:</mat-label>
+    <input matInput formControlName="name" placeholder="File Name" />
+  </mat-form-field>
+
+  <label for="fileUpload" class="file-input">
+    File Upload
+  </label>
+  <input
+      formControlName="file"
+      type="file"
+      multiple
+      placeholder="File Name"
+      (change)="onFileChange($event)"
+      class="file-input"
+      id="fileUpload"
+    />
+
+  <button mat-flat-button color="primary" type="submit">Submit</button>
+</form>

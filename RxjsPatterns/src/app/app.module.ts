@@ -23,6 +23,8 @@ import { NewRecipeComponent } from './new-recipe/new-recipe.component';
 import { MulticastingComponent } from './multicasting/multicasting.component';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
 import { RxjsReviewComponent } from './rxjs-review/rxjs-review.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { RxjsReviewComponent } from './rxjs-review/rxjs-review.component';
     NewRecipeComponent,
     MulticastingComponent,
     RecipeDetailsComponent,
-    RxjsReviewComponent
+    RxjsReviewComponent,
+    FileUploadComponent
   ],
   imports: [
     BrowserModule,
