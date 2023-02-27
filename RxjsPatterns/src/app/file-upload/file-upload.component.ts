@@ -26,8 +26,28 @@ export class FileUploadComponent implements OnInit {
     }
   }
 
+  // valueChanges$ = this.recipeForm.valueChanges.pipe(
+  //   concatMap(formValue => this.service.saveRecipe(formValue)),
+  //   catchError(errors => of(errors)),
+  //   tap(result => this.saveSuccess(result))
+  // );
+
   submit() {
     console.log('submitted');
   }
+
+  // uploadedFilesSubject$ = new BehaviorSubject<File[]>([]);
+  // uploadRecipeImages$ = this.uploadedFilesSubject$.pipe(
+  //   switchMap(uploadedFiles => forkJoin(uploadedFiles.map((file: File) =>
+  //     this.uploadService.upload(this.recipeForm.value.id, file).pipe(
+  //       catchError(errors => of(errors)),
+  //       finalize(() => this.calculateProgressPercentage(++this.counter, uploadedFiles.length))
+  //     ))))
+  // )
+
+
+  // private calculateProgressPercentage(completedRequests: number, totalRequests: number) {
+  //   this.uploadProgress = (completedRequests/totalRequests)*100;
+  // }
 
 }
